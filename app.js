@@ -29,8 +29,8 @@ let options = {
 
 }
 let scriptObfuscation = psu.obfuscate(apiKey,data,options)
-.then(ret => {
-    fs.writeFile('output.txt', ret.data, function(err) {
+.then(result => {
+    fs.writeFile('output.txt', result.data, function(err) {
         console.log("Obfuscation done, saved to output file.")
       });
 })
