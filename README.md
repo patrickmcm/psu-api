@@ -1,4 +1,5 @@
 ## Node.js PSU API obfuscation
+Simple node.js app using the PSU API to obfuscate scripts, note you will need an API key, get this by purchasing PSU premium.
 
 # Setup
 
