@@ -1,6 +1,6 @@
 const { obfuscate } = require("psu-obf-api");
 const { readFile, writeFile } = require("fs").promises;
-const apiKey = "apikeyhere" // modify this to your key
+const apiKey = "apikeyhere"; // modify this to your key
 // you can modify the settings below
 const options = {
     "DisableSuperOperators": false,
@@ -15,7 +15,7 @@ const options = {
     "PremiumFormat": false,
     "ByteCodeMode": "Default"
 
-}
+};
 
 (async () => {
     try { 
@@ -26,4 +26,4 @@ const options = {
     } catch {
         console.log("There was a error")
     };
-})(); 
+})();
