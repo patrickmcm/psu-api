@@ -28,10 +28,11 @@ let options = {
     "ByteCodeMode": "Default"
 
 }
+
 let scriptObfuscation = psu.obfuscate(apiKey,data,options)
 .then(result => {
     fs.writeFile('output.txt', result.data, function(err) {
         console.log("Obfuscation done, saved to output file.")
       });
-})
+    })
 });
