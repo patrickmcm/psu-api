@@ -1,20 +1,8 @@
-const psu = require("psu-obf-api");
-const fs = require("fs")
-const apiKey = "apikeyhere"
-
-function read(file, callback) {
-    fs.readFile(file, 'utf8', function(err, data) {
-        if (err) {
-            console.log(err);
-        }
-        callback(data);
-    });
-}
-
-const fileTobeObfuscated = read('putscripthere.txt', function(data) {
-
-// settings you want here
-let options = {
+const { obfuscate } = require("psu-obf-api");
+const { readFile, writeFile } = require("fs").promises;
+const apiKey = "apikeyhere" // modify this to your key
+// you can modify the settings below
+const options = {
     "DisableSuperOperators": false,
     "MaximumSecurityEnabled": false,
     "ControlFlowObfuscation": true,
@@ -28,10 +16,14 @@ let options = {
     "ByteCodeMode": "Default"
 
 }
-let scriptObfuscation = psu.obfuscate(apiKey,data,options)
-.then(result => {
-    fs.writeFile('output.txt', result.data, function(err) {
-        console.log("Obfuscation done, saved to output file.")
-      });
-})
-});
+
+(async () => {
+    try { 
+        const script = await readFile("./putscripthere.txt", { encoding: "utf8" });
+        const { data: obfuscatedScript } = await obfuscate(apiKey, script, options);
+        await writeFile("./output.txt", obfuscatedScript);
+        console.log("Done");
+    } catch {
+        console.log("There was a error")
+    };
+})(); 
