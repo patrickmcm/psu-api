@@ -24,7 +24,7 @@ let options = {
     "EnhancedOutput": false,
     "EnhancedConstantEncryption": false,
     "CompressedOutput": false,
-    "PremiumFormat": true,
+    "PremiumFormat": false,
     "ByteCodeMode": "Default"
 
 }
