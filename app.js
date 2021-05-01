@@ -20,10 +20,10 @@ const options = {
 (async () => {
     try { 
         const script = await readFile("./putscripthere.txt", { encoding: "utf8" });
-        const { data: obfuscatedScript } = await obfuscate(apiKey, script, options);
-        await writeFile("./output.txt", obfuscatedScript);
+        const { data } = await obfuscate(apiKey, script, options);
+        await writeFile("./output.lua", data);
         console.log("Done");
-    } catch {
-        console.log("There was a error")
+    } catch (e) {
+        console.error(e);
     };
 })();
